@@ -2,6 +2,14 @@
 
 Example persistent services for MediaPlayer.
 
+The recommended path is:
+
+```bash
+sudo bin/install-daemon.sh
+```
+
+This directory is kept as editable examples for custom deployments.
+
 Before installing, edit the `.service` files and adjust:
 
 - `User`

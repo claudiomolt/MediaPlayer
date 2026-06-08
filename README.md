@@ -42,6 +42,44 @@ QBT_URL="http://127.0.0.1:8080"
 HDMI_CONNECTOR="HDMI-A-1"
 ```
 
+## Install As Daemon
+
+From the cloned repo:
+
+```bash
+sudo bin/install-daemon.sh
+```
+
+That installs and starts:
+
+- `mediaplayer-qbt.service`
+- `mediaplayer.service`
+- `mediaplayer-auth-proxy.service`
+- `mediaplayer-cloudflared.service` if `cloudflared` is installed
+
+The installer creates:
+
+- media root: `$HOME/media/downloads`
+- subtitles: `$HOME/media/subtitles`
+- qBittorrent profile: `$HOME/media/qbt-profile`
+- auth file: `$HOME/media/media-center-auth.txt`
+
+Override defaults:
+
+```bash
+sudo MEDIA_CENTER_PORT=3342 \
+  MEDIA_CENTER_AUTH_PORT=3343 \
+  MEDIA_ROOT="$HOME/media/downloads" \
+  SUB_DIR="$HOME/media/subtitles" \
+  bin/install-daemon.sh
+```
+
+Check services:
+
+```bash
+systemctl status mediaplayer-qbt mediaplayer mediaplayer-auth-proxy mediaplayer-cloudflared
+```
+
 ## Commands
 
 ```bash
