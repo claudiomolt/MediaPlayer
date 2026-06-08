@@ -1,0 +1,19 @@
+[Unit]
+Description=MediaPlayer Auth Proxy
+After=network-online.target openclaw-media-center.service
+Wants=network-online.target openclaw-media-center.service
+
+[Service]
+User=media
+Group=media
+Type=simple
+WorkingDirectory=/opt/MediaPlayer
+Environment=MEDIA_CENTER_AUTH_PORT=3343
+Environment=MEDIA_CENTER_TARGET=http://127.0.0.1:3342
+Environment=MEDIA_CENTER_AUTH_FILE=/home/media/media-center-auth.txt
+ExecStart=/usr/bin/node /opt/MediaPlayer/auth-proxy.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

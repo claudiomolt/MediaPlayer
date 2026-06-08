@@ -1,0 +1,15 @@
+[Unit]
+Description=MediaPlayer Cloudflare Quick Tunnel
+After=network-online.target openclaw-media-auth-proxy.service
+Wants=network-online.target openclaw-media-auth-proxy.service
+
+[Service]
+User=media
+Group=media
+Type=simple
+ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate --url http://127.0.0.1:3343
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=MediaPlayer qBittorrent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=media
+Group=media
+Type=simple
+ExecStart=/usr/bin/qbittorrent-nox --profile=/home/media/qbt-profile --webui-port=8080 --torrenting-port=6881
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

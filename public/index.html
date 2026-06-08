@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediaPlayer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div>
+            <strong>Media Center</strong>
+            <small>HDMI · qBittorrent · MPV</small>
+          </div>
+        </div>
+        <nav class="tabs" aria-label="Secciones">
+          <button class="tab is-active" data-view="home">Inicio</button>
+          <button class="tab" data-view="movies">Películas</button>
+          <button class="tab" data-view="series">Series</button>
+          <button class="tab" data-view="library">Descargadas</button>
+        </nav>
+        <div class="download-strip" id="downloadStrip">
+          <span class="pulse"></span>
+          <div class="download-text">
+            <strong>Sin descargas activas</strong>
+            <small>qBittorrent listo</small>
+          </div>
+          <div class="download-meter"><span id="downloadMeter"></span></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="featured" id="featured" data-section="featured">
+          <div class="featured-poster">
+            <img id="featuredPoster" alt="" />
+          </div>
+          <div class="featured-copy">
+            <span class="eyebrow" id="featuredType">Principal</span>
+            <h1 id="featuredTitle">Cargando catálogo</h1>
+            <div class="featured-ratings" id="featuredRatings"></div>
+            <p id="featuredMeta"></p>
+            <p id="featuredDescription"></p>
+          </div>
+        </section>
+
+        <section class="rail" data-section="movies">
+          <div class="rail-head">
+            <h2 id="mainRailTitle">Catálogo en movimiento</h2>
+            <button class="mini focusable" data-refresh="movie">Recargar</button>
+          </div>
+          <div class="poster-row" id="movieRail"></div>
+        </section>
+
+        <section class="rail" data-section="series">
+          <div class="rail-head">
+            <h2>Series populares</h2>
+            <button class="mini focusable" data-refresh="series">Recargar</button>
+          </div>
+          <div class="poster-row" id="seriesRail"></div>
+        </section>
+
+        <section class="rail" data-section="library">
+          <div class="rail-head">
+            <h2>Disponibles ahora</h2>
+            <button class="mini focusable" data-refresh="library">Escanear</button>
+          </div>
+          <div class="library-grid" id="libraryGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <aside class="detail" id="detail" aria-hidden="true">
+      <div class="detail-backdrop" id="closeDetail"></div>
+      <article class="detail-panel">
+        <button class="close focusable" id="detailClose" aria-label="Cerrar">×</button>
+        <div class="detail-hero" id="detailHero"></div>
+        <div class="detail-body">
+          <span class="eyebrow" id="detailType"></span>
+          <h2 id="detailTitle"></h2>
+          <p id="detailMeta"></p>
+          <p id="detailDescription"></p>
+          <div class="detail-actions" id="detailActions"></div>
+          <div class="episode-zone" id="episodeZone"></div>
+        </div>
+      </article>
+    </aside>
+
+    <div class="toast" id="toast"></div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+[Unit]
+Description=MediaPlayer Webapp
+After=network-online.target openclaw-media-qbt.service
+Wants=network-online.target openclaw-media-qbt.service
+
+[Service]
+User=media
+Group=media
+Type=simple
+WorkingDirectory=/opt/MediaPlayer
+Environment=MEDIA_CENTER_PORT=3342
+Environment=MEDIA_ROOT=/home/media/downloads
+Environment=SUB_DIR=/home/media/subtitles
+ExecStart=/usr/bin/node /opt/MediaPlayer/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

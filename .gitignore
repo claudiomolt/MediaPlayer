@@ -1,0 +1,21 @@
+node_modules/
+.env
+.env.*
+*.log
+*.pid
+
+# Local media, credentials, and qBittorrent state must never be committed.
+media/
+downloads/
+subtitles/
+qbt-profile/
+*.torrent
+*.magnet
+media-center-auth.txt
+media-center-ngrok-auth.txt
+
+# Generated verification screenshots.
+*.png
+*.jpg
+*.jpeg
+*.webp
